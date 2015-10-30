@@ -92,14 +92,12 @@ public class RestController {
   @RequestMapping(value="/user/create", method=RequestMethod.GET)
   public ModelAndView addUser() {
      
-    return new ModelAndView("addUser", "command", new User());
+    return new ModelAndView("addUser", "user", new User());
   }
    
   @RequestMapping(value="/user/addUser", method=RequestMethod.POST)
-  @ResponseBody
   public String addUser(@Valid @ModelAttribute("user") User user, BindingResult result, Model model) {
-	  if (result.hasErrors()) {
-		  
+	  if (result.hasErrors()) {		  
 		  return "addUser";
       }
     if (user != null) {
