@@ -6,11 +6,14 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
- 
+
+import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -94,8 +97,11 @@ public class RestController {
    
   @RequestMapping(value="/user/addUser", method=RequestMethod.POST)
   @ResponseBody
-  public String addUser(@ModelAttribute("user") User user) {
-     
+  public String addUser(@Valid @ModelAttribute("user") User user, BindingResult result, Model model) {
+	  if (result.hasErrors()) {
+		  
+		  return "addUser";
+      }
     if (user != null) {
       logger.info("Inside addIssuer, adding: " + user.toString());
     } else {

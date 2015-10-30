@@ -12,19 +12,19 @@
       <tbody>
         <tr>
           <td>User name:</td>
-          <td><f:input path="username" size="10" maxlength="10"></f:input></td>
+          <td><f:input path="username" size="10" maxlength="10"></f:input><f:errors path="username" cssClass="error"/></td>
         </tr>
         <tr>
           <td>email:</td>
-          <td><f:input path="email" size="30"></f:input></td>
+          <td><f:input path="email" size="30"></f:input><f:errors path="email" cssClass="error"/></td>
         </tr>
         <tr>
           <td>Password:</td>
-          <td><f:input path="password" size="6"></f:input></td>
+          <td><f:input path="password" size="6"></f:input><f:errors path="password" cssClass="error"/></td>
         </tr>
         <tr>
           <td>Country:</td>
-          <td><f:input path="country" size="20"></f:input></td>
+          <td><f:input path="country" size="20"></f:input><f:errors path="country" cssClass="error"/></td>
         </tr>
         <tr>
           <td colspan="2"><input type="submit" value="Add User"></td>
